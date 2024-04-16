@@ -11,10 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.springdoc.dto.Test;
 import com.springdoc.service.MockFileUploadService;
+import com.springdoc.swagger.SwaggerBody;
 
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Encoding;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ public class TestController {
 
 	private final MockFileUploadService mockFileUploadService;
 
-	@RequestBody(content = @Content(
+	@SwaggerBody(content = @Content(
 		encoding = @Encoding(name = "request", contentType = MediaType.APPLICATION_JSON_VALUE)))
 	@PostMapping(value = "/file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public Test.Response uploadFile(
