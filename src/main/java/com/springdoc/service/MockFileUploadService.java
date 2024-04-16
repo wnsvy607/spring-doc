@@ -14,9 +14,10 @@ import lombok.extern.slf4j.Slf4j;
 public class MockFileUploadService {
 
 	public void upload(List<MultipartFile> files, Test.Request request) {
+		log.info("data [{}] received", request.data());
 		log.info("파일 업로드 시작");
 		for (var file : files) {
-			log.info("file named [{}] uploaded",file.getName());
+			log.info("file named [{}] uploaded", file.getOriginalFilename());
 		}
 	}
 
