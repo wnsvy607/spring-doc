@@ -26,6 +26,7 @@ public class TestController {
 
 	private final MockFileUploadService mockFileUploadService;
 
+	// try out이 안되는 상황을 테스트 해보고 싶을 경우 아래 @SwaggerBody를 주석처리하면 된다.
 	@SwaggerBody(content = @Content(
 		encoding = @Encoding(name = "request", contentType = MediaType.APPLICATION_JSON_VALUE)))
 	@PostMapping(value = "/file", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

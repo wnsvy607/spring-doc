@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
 	 */
 	@ExceptionHandler(Exception.class)
 	protected ResponseEntity<ErrorResponse> handleException(Exception e) {
-		log.error("예외 발생: {}", e.getMessage());
+		log.error("예외 발생: {}, class: {}", e.getMessage(), e.getClass().getName());
 		ErrorResponse errorResponse = ErrorResponse.of(e.getMessage());
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
 	}
